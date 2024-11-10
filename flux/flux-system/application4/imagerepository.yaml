@@ -4,5 +4,5 @@ metadata:
   name: application4-image
   namespace: flux-system
 spec:
-  image: docker.io/muhammadnaeem42/application4  # Replace with actual image path
-  interval: 1m
+  image: docker.io/muhammadnaeem42/application4  # Replace with the correct image path
+  interval: 1m  # Define the interval to check for new images (optional but recommended)

@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: application3-image  # Name of the ImageRepository resource
+    name: application4-image  # This must reference the ImageRepository resource
   policy:
-    tag: "latest"  # Track the 'latest' image tag
+    tag: "latest"  # Track the latest image tag
 
