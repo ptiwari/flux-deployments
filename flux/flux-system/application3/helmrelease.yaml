@@ -16,5 +16,4 @@ spec:
     image:
       repository: docker.io/muhammadnaeem42/application3
       tag: "{{ .image.application3-policy.latest }}"
-  imagePullSecrets:
-    - name: regcred
+
