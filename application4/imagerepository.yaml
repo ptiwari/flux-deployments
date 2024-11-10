@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: application4-image
+  namespace: flux-system
+spec:
+  image: docker.io/muhammadnaeem42/application4  # Replace with actual image path
+  interval: 1m
