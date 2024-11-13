@@ -14,5 +14,5 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3:latest
+      repository: docker.io/muhammadnaeem42/application3
 
