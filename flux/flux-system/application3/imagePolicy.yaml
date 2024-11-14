@@ -7,6 +7,4 @@ spec:
   imageRepositoryRef:
     name: application3-image  # Reference to the ImageRepository
   policy:
-    # Ensure the correct structure for your policy
-    semver:
-      range: ">=1.0.0"  # Example of a semver policy (can be adjusted based on your use case)
+    latest: {}  # Use the latest image tag
