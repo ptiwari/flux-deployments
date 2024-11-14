@@ -7,5 +7,5 @@ spec:
   imageRepositoryRef:
     name: application3-image  # Reference to the ImageRepository that tracks the image
   policy:
-    tag:
-      pattern: "latest"  # Match the 'latest' tag
+    semver:
+      range: ">=1.0.0"  # This selects images that match the semver range
