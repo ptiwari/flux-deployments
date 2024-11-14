@@ -1,5 +1,5 @@
 apiVersion: automation.toolkit.fluxcd.io/v1beta2
-kind: imageupdateautomations
+kind: ImageUpdateAutomations
 metadata:
   name: application3-image-update
   namespace: flux-system
