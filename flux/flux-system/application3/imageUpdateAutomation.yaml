@@ -5,16 +5,17 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m  # How often to check for new images
+  update:
+    path: "./charts/application3/values.yaml"  # Path to the values file to update
+    strategy: Setters  # Strategy to update the image tag using Setters (or other strategies)
   git:
-    repoURL: https://github.com/NaeemDosh/application3  # Your Git repo URL
-    branch: main  # The branch to update
+    # Instead of spec.git.branch, you need to reference your source Git repository correctly
     secretRef:
       name: flux-system-git-ssh  # Secret containing SSH key for Git access
-  update:
-    path: "./charts/application3/values.yaml"  
-    strategy: Setters  # Update values using the "Setters" strategy
+    repository: https://github.com/NaeemDosh/application3  # Your Git repository
+    branch: main  # The Git branch to update
   image:
-    repository: docker.io/muhammadnaeem42/application3  # Docker Hub repo
+    # The `image` section in ImageUpdateAutomation should refer to the ImagePolicy
     policy:
-      name: latest-policy  # The ImagePolicy you defined earlier
-    tag: "latest"  # Image tag (e.g., "latest", or use a tag pattern from the policy)
+      name: latest-policy  # The ImagePolicy to track the latest image
+    tag: "latest"  # The tag to use (you could also use a tag pattern if desired)
