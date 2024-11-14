@@ -16,5 +16,5 @@ spec:
   image:
     repository: docker.io/muhammadnaeem42/application3  # Docker Hub repo
     policy:
-      name: latest-policy  # The ImagePolicy you defined earlier
+      name: latest-policy  # Reference the correct ImagePolicy
     tag: "latest"  # Image tag (e.g., "latest", or use a tag pattern from the policy)
