@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: charts/application4  # Path to Helm chart in the repo
+      chart: charts
       sourceRef:
         kind: GitRepository
         name: application4-repo
