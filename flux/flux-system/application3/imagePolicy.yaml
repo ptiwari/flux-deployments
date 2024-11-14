@@ -5,6 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: application3-image  # This should refer to your ImageRepository
+    name: application3-image  # Reference to the ImageRepository
   policy:
-    latest: {}  # Use the `latest` policy type without any additional fields
+    # Ensure the correct structure for your policy
+    semver:
+      range: ">=1.0.0"  # Example of a semver policy (can be adjusted based on your use case)
