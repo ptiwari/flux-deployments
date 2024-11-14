@@ -3,11 +3,3 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-###
-- ./application3/gitrepository.yaml
-- ./application3/imagerepository.yaml
-- ./application3/helmrelease.yaml
-####
-- ./application4/gitrepository.yaml
-- ./application4/imagerepository.yaml
-- ./application4/helmrelease.yaml
