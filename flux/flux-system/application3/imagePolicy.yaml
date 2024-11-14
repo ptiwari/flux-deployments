@@ -7,4 +7,5 @@ spec:
   imageRepositoryRef:
     name: application3-image  # Reference to the ImageRepository
   policy:
-    latest: {}  # Use the latest image tag
+    tag:
+      pattern: "latest"  # Matching the "latest" tag from your repository
