@@ -7,5 +7,5 @@ spec:
   imageRepositoryRef:
     name: application3-image  # Reference to the ImageRepository
   policy:
-    tag:
-      pattern: "latest"   # Tag pattern to look for
+    semver:
+      range: ">=1.0.0"  # This ensures you're selecting versions greater than or equal to 1.0.0
