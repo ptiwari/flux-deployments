@@ -4,8 +4,9 @@ metadata:
   name: application3-chart
   namespace: flux-system
 spec:
-  chart: application3-chart
+  chart: charts
   sourceRef:
     kind: GitRepository
-    name: application3-repo
+    name: application3-repo  # This should match the name of your GitRepository resource
+    namespace: flux-system
   interval: 5m
