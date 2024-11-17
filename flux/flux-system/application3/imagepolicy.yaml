@@ -8,4 +8,4 @@ spec:
     name: application3-image
   policy:
     semver:
-      greaterThanOrEqual: "1.0.0"
+      range: ">=1.0.0"
