@@ -4,5 +4,5 @@ metadata:
   name: application3-repository
   namespace: default
 spec:
-  interval: 1m0s
+  interval: 1m
   image: docker.io/muhammadnaeem42/application3
