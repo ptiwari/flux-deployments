@@ -7,23 +7,23 @@ spec:
   git:
     checkout:
       ref:
-        branch: main  # Specify the branch for checking out updates
+        branch: main  # Specify the branch you want to track for changes
     commit:
       author:
-        email: m.naeem.uet.cs@gmail.com  # Your email for commit author
+        email: m.naeem.uet.cs@gmail.com
         name: NaeemDosh  # Your name for commit author
-      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'  # Commit message template
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'  # Commit message format
     push:
-      branch: main  # The branch to push updates to after committing changes
-  interval: 1m0s  # Interval to check for updates, every minute
+      branch: main  # Specify the branch for pushing updates
+  interval: 1m0s  # Check for updates every minute
   sourceRef:
     kind: GitRepository
-    name: flux-deployments  # The name of the Git repository that Flux will use
-    namespace: flux-system  # The namespace where the Git repository is stored
+    name: flux-deployments  # Git repository containing the HelmRelease or manifest files
+    namespace: flux-system
   update:
-    path: ./charts/application3/values.yaml  # Path to the Helm chart or values file for updating images
-    strategy: Setters  # Update strategy (you can also use 'Patch' or 'Setters')
-  images:
-    - name: docker.io/muhammadnaeem42/application3  # The image name that Flux will track for updates
-      policy:
-        semver: ">=1.0.0"  # Version policy, for example, only updates versions >=1.0.0
+    path: ./flux  # Path to the Helm chart or Kubernetes manifests
+    strategy: Setters  # Update strategy (can be "Patch" or "Setters")
+  image:
+    name: docker.io/muhammadnaeem42/application3  # The image to be updated
+    policy:
+      semver: ">=1.0.0"  # Version policy for the image
