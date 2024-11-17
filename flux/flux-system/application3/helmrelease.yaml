@@ -16,4 +16,4 @@ spec:
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: # {"$imagepolicy": "default:application3-image-policy"}
+      tag: "latest"
