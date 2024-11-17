@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: ./charts  # Reference to the charts/ directory
+      chart: charts  # This points to the `charts/` directory in the Git repository
       sourceRef:
         kind: GitRepository
         name: application3-repo
