@@ -1,25 +1,22 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: application3-image-update
+  name: application3-automation
   namespace: default
 spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: application3-repo
+    namespace: flux-system
   git:
     checkout:
       ref:
-        branch: main
+        branch: main # Update this to your branch
     commit:
       author:
+        name: NaemDOSH
         email: m.naeem.uet.cs@gmail.com
-        name: NaeemDosh
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
-      branch: main
-  interval: 1m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-deployments
-    namespace: flux-system
-  update:
-    path: charts
-    strategy: Setters
+      branch: main # Update this to your branch
