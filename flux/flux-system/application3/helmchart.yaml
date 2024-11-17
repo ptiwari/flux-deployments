@@ -4,10 +4,10 @@ metadata:
   name: application3-chart
   namespace: default
 spec:
-  chart: application3  # The chart name
+  chart: charts  # The directory or chart name in the Git repository
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # Name of your GitRepository resource
+    name: application3-repo
     namespace: default
-  interval: 5m  # Reconciliation interval
-  path: charts
+  interval: 1m  # How often to check for changes
+  valuesFile: values.yaml  # Optional, specifies which values file to use
