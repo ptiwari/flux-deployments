@@ -5,22 +5,19 @@ metadata:
   namespace: default
 spec:
   git:
-    checkout:
-      ref:
-        branch: main  # Specify the branch you want to track for changes
     commit:
       author:
         email: m.naeem.uet.cs@gmail.com
-        name: NaeemDosh  # Your name for commit author
-      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'  # Commit message format
+        name: NaeemDosh
+      messageTemplate: "{{range .Updated.Images}}{{println .}}{{end}}"  # Commit message format
     push:
-      branch: main  # Specify the branch for pushing updates
+      branch: main  # Where to push updates
   interval: 1m0s  # Check for updates every minute
   sourceRef:
     kind: GitRepository
-    name: flux-deployments  # Git repository containing the HelmRelease or manifest files
+    name: flux-deployments  # The GitRepository containing your Helm chart
     namespace: flux-system
   update:
-    path: ./charts/application3
-    strategy: Setters  # Update strategy (can be "Patch" or "Setters")
-    imagePolicy: application3-image-policy  # Reference to the ImagePolicy
+    path: ./charts/application3  # Path to the Helm chart or Kubernetes manifests
+    strategy: Setters  # Use Setters strategy for Helm values updates
+    imageRef: docker.io/muhammadnaeem42/application3  # Docker image repository
