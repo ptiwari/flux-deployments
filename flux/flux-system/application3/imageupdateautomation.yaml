@@ -2,22 +2,25 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
   name: application3-image-update
-  namespace: default
+  namespace: flux-system
 spec:
   git:
     commit:
       author:
         email: m.naeem.uet.cs@gmail.com
         name: NaeemDosh
-      messageTemplate: "{{range .Updated.Images}}{{println .}}{{end}}"  # Commit message format
+      messageTemplate: "{{range .Updated.Images}}{{println .}}{{end}}"
     push:
-      branch: main  # Where to push updates
-  interval: 1m0s  # Check for updates every minute
+      branch: main  # Specify the branch for pushing updates to Git
+  interval: 1m0s  # Interval at which Flux will check for image updates
   sourceRef:
     kind: GitRepository
-    name: flux-deployments  # The GitRepository containing your Helm chart
+    name: flux-deployments  # Name of the Git repository
     namespace: flux-system
   update:
-    path: ./charts/application3  # Path to the Helm chart or Kubernetes manifests
-    strategy: Setters  # Use Setters strategy for Helm values updates
-    imageRef: docker.io/muhammadnaeem42/application3  # Docker image repository
+    path: ./flux/flux-system/application3  # Path where the Flux resources are stored (e.g., ImageUpdateAutomation)
+    strategy: Setters
+    image:
+      name: docker.io/muhammadnaeem42/application3  # The image to monitor for updates
+      policy:
+        semver: ">=1.0.0"  # The version policy for Docker image tags
