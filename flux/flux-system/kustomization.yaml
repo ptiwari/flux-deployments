@@ -6,6 +6,6 @@ resources:
   # Application-specific resources
   - ./application3/gitrepository.yaml
   - ./application3/imagerepository.yaml
-##  - ./application3/imagePolicy.yaml
+  - ./application3/imagepolicy.yaml
   - ./application3/helmrelease.yaml
-##  - ./application3/imageUpdateAutomation.yaml
+ - ./application3/imageupdateautomation.yaml
