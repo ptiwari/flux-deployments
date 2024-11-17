@@ -6,7 +6,25 @@ metadata:
 spec:
   interval: 5m
   chart:
+    spec:apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: application3
+  namespace: flux-system
+spec:
+  interval: 5m
+  chart:
     spec:
+      chart: application3  # Ensure the chart is named correctly her
+      sourceRef:
+        kind: GitRepository
+        name: application3-repo  # Reference the correct GitRepository name
+        namespace: flux-system
+  values:
+    image:
+      repository: docker.io/muhammadnaeem42/application3
+      tag: latest  # Use the appropriate image tag or policy
+
       chart: charts/application3  # Path to Helm chart in the repo
       sourceRef:
         kind: GitRepository
