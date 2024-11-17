@@ -10,4 +10,4 @@ spec:
     name: application3-repo  # Name of your GitRepository resource
     namespace: default
   interval: 5m  # Reconciliation interval
-  path: charts/application3  # Path to the chart in your Git repository
+  path: charts
