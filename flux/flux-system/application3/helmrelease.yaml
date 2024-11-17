@@ -12,7 +12,7 @@ spec:
         kind: GitRepository
         name: application3-repo  # Correct GitRepository reference
         namespace: flux-system
-      path: ./charts/application3  # Correct path to the chart in the repo
+      path: charts/application3  # Correct path to the chart in the repo
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
