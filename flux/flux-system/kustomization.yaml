@@ -5,3 +5,8 @@ resources:
   - gotk-sync.yaml
   # Application-specific resources
  
+  - ./application3/imagerepository.yaml
+  - ./application3/imagepolicy.yaml
+  - ./application3/helmrelease.yaml
+  - ./application3/helmchart.yaml
+  - ./application3/imageupdateautomation.yaml
