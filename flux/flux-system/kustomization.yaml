@@ -4,7 +4,7 @@ resources:
   - gotk-components.yaml
   - gotk-sync.yaml
   # Application-specific resources
- 
+  - ./application3/gitrepository.yaml
   - ./application3/imagerepository.yaml
   - ./application3/imagepolicy.yaml
   - ./application3/helmrelease.yaml
