@@ -7,12 +7,12 @@ spec:
   interval: 1m  # Check for image updates every minute
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # Git repository with HelmRelease
+    name: application3-repo  # Git repository containing HelmRelease definition
     namespace: flux-system
   update:
     path: "charts/application3/values.yaml"  # Path to the Helm values file where the image reference is located
     strategy: Setters  # Update strategy ('Setters' or 'Patch')
-  image:
-    name: docker.io/muhammadnaeem42/application3  # Image to track for updates
-    policy:
-      semver: ">=1.0.0"  # Version policy
+  images:
+    - name: docker.io/muhammadnaeem42/application3  # Image to track for updates
+      policy:
+        semver: ">=1.0.0"  # Version policy
