@@ -11,7 +11,8 @@ spec:
       sourceRef:
         kind: GitRepository
         name: application3-repo
-        namespace: default
+        namespace: flux-system
+
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
