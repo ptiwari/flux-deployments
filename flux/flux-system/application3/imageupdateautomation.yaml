@@ -13,6 +13,5 @@ spec:
     path: "charts/application3/values.yaml"  # Path to the Helm values file where the image reference is located
     strategy: Setters  # Strategy for updating images, use 'Setters' or 'Patch'
   images:
-    - name: docker.io/muhammadnaeem42/application3  # The image to track for updates
-      policy:
-        semver: ">= 1.0.0"  # Optional: Accept only versions >= 1.0.0
+    - name: docker.io/muhammadnaeem42/application3
+      newTag: "{{.Version}}"
