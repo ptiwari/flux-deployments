@@ -1,18 +1,24 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: application3-image-update
-  namespace: default
+  name: automation
+  namespace: flux-system
 spec:
-  interval: 1m  # Check for image updates every minute
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: m.naeem.uet.cs@gmail.com
+        name: NaeemDosh
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # Git repository containing HelmRelease definition
-    namespace: flux-system
+    name: flux-deployments
   update:
-    path: "charts/application3/values.yaml"  # Path to the Helm values file where the image reference is located
-    strategy: Setters  # Update strategy ('Setters' or 'Patch')
-  images:
-    - name: docker.io/muhammadnaeem42/application3  # Image to track for updates
-      policy:
-        semver: ">=1.0.0"  # Version policy
+    path: ./flux
+    strategy: Setters
