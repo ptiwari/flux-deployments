@@ -20,4 +20,4 @@ spec:
       pullPolicy: Always
       tag: "{{ .ImagePolicy.latest }}"
   imagePolicy:
-    name: application3-policy
+    name: application3-image-policy
