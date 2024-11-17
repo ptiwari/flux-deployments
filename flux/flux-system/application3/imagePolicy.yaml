@@ -1,11 +1,10 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: latest-policy
+  name: application3-image-policy
   namespace: default
 spec:
   imageRepositoryRef:
-    name: application3-image  
+    name: application3-image
   policy:
-    semver:
-      range: 5.0.x
+    semver: ">= 1.0.0"  # Accept versions greater than or equal to 1.0.0
