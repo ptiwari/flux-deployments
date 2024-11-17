@@ -2,11 +2,11 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmChart
 metadata:
   name: application3-chart
-  namespace: flux-system  # HelmChart resides in flux-system
+  namespace: flux-system  # HelmChart resides in flux-system namespace
 spec:
-  chart: application3-chart
+  chart: application3-chart  # Name of the chart
   sourceRef:
-    kind: GitRepository
-    name: application3-repo
-    namespace: flux-system
+    kind: GitRepository  # Using GitRepository as sourceRef
+    name: application3-repo  # The GitRepository name
+    namespace: flux-system  # Namespace of the GitRepository
   interval: 5m
