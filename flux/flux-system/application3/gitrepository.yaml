@@ -2,9 +2,9 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: application3-repo
-  namespace: default  # Make sure the repository is in the 'default' namespace
+  namespace: default
 spec:
-  interval: 5m  # Interval for checking the repository (e.g., every 5 minutes)
-  url: https://github.com/NaeemDosh/application3
+  interval: 5m
+  url: https://github.com/NaeemDosh/application3.git
   ref:
     branch: main
