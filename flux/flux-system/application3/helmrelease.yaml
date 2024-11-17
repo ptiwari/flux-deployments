@@ -4,15 +4,15 @@ metadata:
   name: application3
   namespace: default
 spec:
-  interval: 5m  # Check every 5 minutes for updates
+  interval: 5m
   chart:
     spec:
-      chart: charts/application3  # Path to Helm chart in the repo
+      chart: charts/application3  # Path to Helm chart
       sourceRef:
         kind: GitRepository
-        name: application3-repo
+        name: application3-repo  # Git repository containing Helm chart
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3  # Image repository
-      tag: "{{ .Values.imageTag }}"  # Use a dynamic tag injected from the ImageUpdateAutomation
+      repository: docker.io/muhammadnaeem42/application3  # Docker repository
+      tag: latest  # This will be automatically updated by Flux when a new tag is found
