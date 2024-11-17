@@ -2,9 +2,9 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: application3-repo
-  namespace: flux-system
+  namespace: flux-system  # This is where the GitRepository will reside
 spec:
   interval: 5m
-  url: https://github.com/NaeemDosh/application3.git
+  url: https://github.com/NaeemDosh/application3
   ref:
     branch: main
