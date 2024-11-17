@@ -8,6 +8,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: application3-repo
-    namespace: default
+    namespace: flux-system
   interval: 1m  # How often to check for changes
   valuesFile: values.yaml  # Optional, specifies which values file to use
