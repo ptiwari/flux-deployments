@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: application3-repository  # Reference the ImageRepository created above
+    name: application3-repository  # Reference the ImageRepository
   policy:
-    semver: ">=1.0.0"  # Version policy to track tags starting from 1.0.0
+    semver:
+      range: ">=1.0.0"  # Correct format for semver range
