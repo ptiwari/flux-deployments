@@ -2,10 +2,10 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: application3-image-policy
-  namespace: default
+  namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: application3-image  # ImageRepository to track the image
+    name: docker.io/muhammadnaeem42/application3
   policy:
     semver:
-      range: ">=1.0.0"  # Version range for accepted images
+      range: 1.0.x
