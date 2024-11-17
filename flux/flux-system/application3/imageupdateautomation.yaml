@@ -1,22 +1,19 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: application3-automation
-  namespace: default
+  name: application3-image-update
+  namespace: flux-system
 spec:
   interval: 1m
-  sourceRef:
-    kind: GitRepository
-    name: application3-repo
-    namespace: flux-system
+  update:
+    path: charts
+    strategy: Setters
   git:
     checkout:
-      ref:
-        branch: main # Update this to your branch
-    commit:
-      author:
-        name: NaeemDosh
-        email: m.naeem.uet.cs@gmail.com
-      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+      ref: main  # Replace with the branch you're using
     push:
-      branch: main # Update this to your branch
+      branch: main  # Replace with the branch you're using
+    repository:
+      name: application3-repo  # Name of the repository containing the HelmRelease
+  imagePolicy:
+    name: application3-image-policy  # ImagePolicy for updating the image tag
