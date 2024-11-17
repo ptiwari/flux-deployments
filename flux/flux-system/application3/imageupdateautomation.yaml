@@ -7,19 +7,19 @@ spec:
   git:
     checkout:
       ref:
-        branch: main  # Specify the branch to track
+        branch: main
     commit:
       author:
         email: m.naeem.uet.cs@gmail.com
         name: NaeemDosh
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
-      branch: main  # Specify the branch to push changes
-  interval: 1m0s  # Automation interval
+      branch: main
+  interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: flux-deployments  # Ensure this GitRepository exists in flux-system
+    name: flux-deployments
     namespace: flux-system
   update:
     path: .
-    strategy: Setters  # Use Setters to replace values in YAML files
+    strategy: Setters
