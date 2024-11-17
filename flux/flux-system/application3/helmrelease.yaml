@@ -17,4 +17,4 @@ spec:
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: "{{ .Values.image.tag | default 'latest' }}"
+      tag: "latest"
