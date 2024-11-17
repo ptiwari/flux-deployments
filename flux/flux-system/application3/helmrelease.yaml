@@ -3,16 +3,18 @@ kind: HelmRelease
 metadata:
   name: application3
   namespace: default
+  annotations:
+    image.toolkit.fluxcd.io/update: "application3-policy"
 spec:
   interval: 5m
   chart:
     spec:
-      chart: charts              # Use the same chart name as in HelmChart
+      chart: charts
       sourceRef:
         kind: GitRepository
-        name: application3-repo  # Reference the correct GitRepository
-        namespace: flux-system   # Namespace of GitRepository
+        name: application3-repo
+        namespace: flux-system
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: "latest"
+      tag: "{{ .Values.image.tag | default 'latest' }}"
