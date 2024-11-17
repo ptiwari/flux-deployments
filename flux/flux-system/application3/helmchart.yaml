@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmChart
 metadata:
   name: application3-chart
@@ -7,7 +7,7 @@ spec:
   chart: application3  # The chart name
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # The name of the GitRepository resource
+    name: application3-repo  # Name of your GitRepository resource
     namespace: default
-  interval: 5m  # How often Flux will check for updates
-  path: charts/application3  # Path to the chart in the Git repository
+  interval: 5m  # Reconciliation interval
+  path: charts/application3  # Path to the chart in your Git repository
