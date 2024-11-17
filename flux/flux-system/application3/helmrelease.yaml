@@ -7,12 +7,12 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: charts/application3  # Path to your Helm chart inside the Git repository
+      chart: ./charts/application3  # Path to Helm chart in the repo
       sourceRef:
         kind: GitRepository
-        name: application3-repo  # Name of the Git repository that contains your Helm chart
+        name: flux-deployments
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3  # Docker image repository
-      tag: "latest"   # {"$imagepolicy": "docker.io/muhammadnaeem42/application3:tag"}
+      repository: docker.io/muhammadnaeem42/application3
+      tag: # {"$imagepolicy": "default:application3-image-policy"}
