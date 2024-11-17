@@ -1,24 +1,29 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: automation
+  name: application3-image-update
   namespace: default
 spec:
   git:
     checkout:
       ref:
-        branch: main
+        branch: main  # Specify the branch for checking out updates
     commit:
       author:
-        email: m.naeem.uet.cs@gmail.com
-        name: NaeemDosh
-      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+        email: m.naeem.uet.cs@gmail.com  # Your email for commit author
+        name: NaeemDosh  # Your name for commit author
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'  # Commit message template
     push:
-      branch: main
-  interval: 1m0s
+      branch: main  # The branch to push updates to after committing changes
+  interval: 1m0s  # Interval to check for updates, every minute
   sourceRef:
     kind: GitRepository
-    name: flux-deployments
+    name: flux-deployments  # The name of the Git repository that Flux will use
+    namespace: flux-system  # The namespace where the Git repository is stored
   update:
-    path: ./flux
-    strategy: Setters
+    path: ./charts/application3/values.yaml  # Path to the Helm chart or values file for updating images
+    strategy: Setters  # Update strategy (you can also use 'Patch' or 'Setters')
+  images:
+    - name: docker.io/muhammadnaeem42/application3  # The image name that Flux will track for updates
+      policy:
+        semver: ">=1.0.0"  # Version policy, for example, only updates versions >=1.0.0
