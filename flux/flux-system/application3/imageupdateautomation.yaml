@@ -18,9 +18,9 @@ spec:
     name: flux-deployments  # Name of the Git repository
     namespace: flux-system
   update:
-    path: ./flux/flux-system/application3  # Path where the Flux resources are stored (e.g., ImageUpdateAutomation)
+    path: ./flux/flux-system/application3   # Path where the Flux resources are stored (e.g., ImageUpdateAutomation)
     strategy: Setters
-    image:
+    imageRef:
       name: docker.io/muhammadnaeem42/application3  # The image to monitor for updates
       policy:
         semver: ">=1.0.0"  # The version policy for Docker image tags
