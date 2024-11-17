@@ -18,4 +18,6 @@ spec:
     image:
       repository: docker.io/muhammadnaeem42/application3
       pullPolicy: Always
-      tag: "{{ .Values.image.tag }}" 
+      tag: "{{ .ImagePolicy.latest }}"
+  imagePolicy:
+    name: application3-policy
