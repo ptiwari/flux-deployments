@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: charts  # This points to the `charts/` directory in the Git repository
+      chart: charts  # Must match the `HelmChart`'s spec.chart
       sourceRef:
         kind: GitRepository
         name: application3-repo
