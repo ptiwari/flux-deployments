@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   imageRepositoryRef:
-    name: application3-repository  # Reference the ImageRepository
+    name: application3-repository
   policy:
     semver:
-      range: ">=1.0.0"  # Corrected semver format
+      range: ">=1.0.0"
