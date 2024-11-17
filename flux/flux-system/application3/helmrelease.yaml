@@ -7,12 +7,13 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: application3  # Ensure the chart is named correctly
+      chart: application3  # Ensure the chart is named correctly here
+      version: "0.1.0"  # Optionally specify the version of the chart
       sourceRef:
         kind: GitRepository
-        name: application3-repo  # Correct reference to the GitRepo
+        name: application3-repo  # Reference the correct GitRepository name
         namespace: flux-system
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: # {"$imagepolicy": "default:application3-image-policy"}
+      tag: latest  # Use the appropriate image tag or policy
