@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: application3
-  namespace: default
+  namespace: default 
   annotations:
     image.toolkit.fluxcd.io/update: "application3-policy"
 spec:
