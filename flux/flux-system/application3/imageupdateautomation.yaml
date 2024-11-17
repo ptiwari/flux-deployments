@@ -7,15 +7,12 @@ spec:
   interval: 1m  # Check for image updates every minute
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # This should be the Git repository where your HelmRelease is defined
+    name: application3-repo  # The Git repository containing the HelmRelease
     namespace: flux-system
-  gitClient:
-    secretRef:
-      name: flux-system-git-ssh  # This is your Git SSH secret reference
   update:
     path: "charts/application3/values.yaml"  # Path to the Helm values file where the image reference is located
-    strategy: Setters  # You can also use 'Patch' or 'Setters' depending on your needs
-  image:
-    name: docker.io/muhammadnaeem42/application3  # Image name that Flux should track
-    policy:
-      semver: ">= 1.0.0"  # Optional: Only accept versions >= 1.0.0
+    strategy: Setters  # Strategy for updating images, use 'Setters' or 'Patch'
+  images:
+    - name: docker.io/muhammadnaeem42/application3  # The image to track for updates
+      policy:
+        semver: ">= 1.0.0"  # Optional: Accept only versions >= 1.0.0
