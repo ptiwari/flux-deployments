@@ -8,4 +8,4 @@ resources:
   - ./application3/imagerepository.yaml
   - ./application3/imagepolicy.yaml
   - ./application3/helmrelease.yaml
- - ./application3/imageupdateautomation.yaml
+  - ./application3/imageupdateautomation.yaml
