@@ -1,4 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmChart
 metadata:
   name: application3-chart
@@ -8,5 +8,4 @@ spec:
   sourceRef:
     kind: GitRepository  # Using GitRepository as sourceRef
     name: application3-repo  # The GitRepository name
-    namespace: flux-system  # Namespace of the GitRepository
   interval: 5m
