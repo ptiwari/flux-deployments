@@ -7,12 +7,14 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: application3  # Chart name in the application3 repository
+      chart: application3  # Name of the chart in the Git repository
       sourceRef:
         kind: GitRepository
-        name: application3-repo  # Correct GitRepository reference
+        name: application3-repo  # Git repository reference
         namespace: default
-      path: charts/application3  # Correct path to the chart in the repo
+      ref:
+        branch: main  # Specify the branch (if needed)
+      path: charts/application3  # Path to the Helm chart within the repository
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
