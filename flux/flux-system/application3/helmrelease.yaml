@@ -4,15 +4,16 @@ metadata:
   name: application3
   namespace: default
 spec:
-  interval: 5m  # How often Flux will check for updates
+  interval: 5m
   chart:
     spec:
-      chart: application3-chart  # Reference to the HelmChart resource
+      chart: application3  # Match the chart name
       sourceRef:
         kind: GitRepository
         name: application3-repo
         namespace: default
+      path: charts/application3
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3  # Docker image repository
-      tag: "latest"  # Docker image tag
+      repository: docker.io/muhammadnaeem42/application3
+      tag: "latest"
