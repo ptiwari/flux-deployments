@@ -1,18 +1,18 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: application3
-  namespace: default 
+  namespace: default
 spec:
   interval: 5m
   chart:
     spec:
-      chart: charts/application3  # Path to Helm chart in the repo
+      chart: charts/application3  # Path to your Helm chart inside the Git repository
       sourceRef:
         kind: GitRepository
-        name: application3-repo
+        name: application3-repo  # Name of the Git repository that contains your Helm chart
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3
-      tag: "v1.3.1"
+      repository: docker.io/muhammadnaeem42/application3  # Docker image repository
+      tag: "latest"   # {"$imagepolicy": "docker.io/muhammadnaeem42/application3:tag"}
