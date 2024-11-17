@@ -4,16 +4,18 @@ metadata:
   name: application3-image-update
   namespace: default
 spec:
-  interval: 5m  # How often to check for new images
-  update:
-    path: "./charts/application3/values.yaml"  # Path to update the values.yaml or other manifests
-    strategy: Setters  # The strategy for updating the image tag in values.yaml
-  git:
+  interval: 1m  # Check for image updates every minute
+  sourceRef:
+    kind: GitRepository
+    name: application3-repo  # This should be the Git repository where your HelmRelease is defined
+    namespace: flux-system
+  gitClient:
     secretRef:
-      name: flux-system-git-ssh  # Secret containing SSH key for Git access
-    repository: https://github.com/NaeemDosh/application3  # Git repository
-    branch: main  # The Git branch to update
+      name: flux-system-git-ssh  # This is your Git SSH secret reference
+  update:
+    path: "charts/application3/values.yaml"  # Path to the Helm values file where the image reference is located
+    strategy: Setters  # You can also use 'Patch' or 'Setters' depending on your needs
   image:
+    name: docker.io/muhammadnaeem42/application3  # Image name that Flux should track
     policy:
-      name: latest-policy  # Reference to the ImagePolicy to track the latest image
-    tag: "latest"  # Ensure the 'latest' tag is used
+      semver: ">= 1.0.0"  # Optional: Only accept versions >= 1.0.0
