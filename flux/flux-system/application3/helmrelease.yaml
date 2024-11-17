@@ -6,7 +6,7 @@ metadata:
   annotations:
     image.toolkit.fluxcd.io/update: "application3-policy"
 spec:
-  interval: 5m
+  interval: 1m
   chart:
     spec:
       chart: charts
