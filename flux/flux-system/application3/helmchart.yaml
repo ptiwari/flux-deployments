@@ -4,7 +4,7 @@ metadata:
   name: application3-chart
   namespace: flux-system
 spec:
-  chart: ./application3/charts # Path to the chart from the root of the Git repository
+  chart: application3/charts
   sourceRef:
     kind: GitRepository
     name: application3-repo  # This should match the name of your GitRepository resource
