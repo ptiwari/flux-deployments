@@ -15,7 +15,7 @@ spec:
         branch: main # Update this to your branch
     commit:
       author:
-        name: NaemDOSH
+        name: NaeemDosh
         email: m.naeem.uet.cs@gmail.com
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
