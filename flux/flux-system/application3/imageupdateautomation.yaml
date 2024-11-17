@@ -5,15 +5,21 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: application3-repo  # Name of the GitRepository resource
   update:
-    path: charts
+    path: charts  # Ensure this path points to the directory containing the HelmRelease file
     strategy: Setters
   git:
     checkout:
-      ref: main  # Replace with the branch you're using
+      ref:
+        branch: main  # Replace with the branch you're using
     push:
       branch: main  # Replace with the branch you're using
-    repository:
-      name: application3-repo  # Name of the repository containing the HelmRelease
-  imagePolicy:
-    name: application3-image-policy  # ImagePolicy for updating the image tag
+    commit:
+      author:
+        email: flux-bot@users.noreply.github.com
+        name: Flux Bot
+      messageTemplate: |
+        Automated image update for {{ .Updated.ImageRef }}
