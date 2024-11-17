@@ -8,4 +8,4 @@ spec:
     name: application3-repository  # Reference the ImageRepository
   policy:
     semver:
-      range: ">=1.0.0"  # Correct format for semver range
+      range: ">=1.0.x"  # Correct format for semver range
