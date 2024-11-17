@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: charts  # Must match the `HelmChart`'s spec.chart
+      chart: .  # Use "." since the chart is in the same directory as `Chart.yaml`
       sourceRef:
         kind: GitRepository
         name: application3-repo
@@ -15,4 +15,4 @@ spec:
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: latest
+      tag: "latest"
