@@ -7,12 +7,13 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: charts/application3  # Path to Helm chart in the repo
+      chart: application3 # Name of the chart (must match the chart in your Git repo)
       sourceRef:
         kind: GitRepository
         name: application3-repo
-        namespace: flux-system
+        namespace: flux-system # This is where the GitRepository resource is located
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-
+      pullPolicy: IfNotPresent
+      tag: latest
