@@ -1,4 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmChart
 metadata:
   name: application3-chart
@@ -7,5 +7,5 @@ spec:
   chart: charts
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # This should match the name of your GitRepository resource
+    name: application3-repo  # Matches GitRepository
   interval: 5m
