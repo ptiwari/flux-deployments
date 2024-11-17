@@ -2,7 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: application3-image-policy
-  namespace: flux-system
+  namespace: default
 spec:
   imageRepositoryRef:
     name: application3-repository  # Reference the ImageRepository
