@@ -11,7 +11,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: application3-repo  # Correct GitRepository reference
-        namespace: flux-system
+        namespace: default
       path: charts/application3  # Correct path to the chart in the repo
   values:
     image:
