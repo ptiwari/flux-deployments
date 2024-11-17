@@ -17,4 +17,5 @@ spec:
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
+      pullPolicy: Always
       tag: "v1.1.1"
