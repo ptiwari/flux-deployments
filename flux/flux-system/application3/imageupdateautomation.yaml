@@ -19,7 +19,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-deployments  # Ensure this GitRepository exists in flux-system
-    namespace: flux-system
+    namespace: default
   update:
     path: ./charts/application3  # Adjust path relative to the repository
     strategy: Setters  # Use Setters to replace values in YAML files
