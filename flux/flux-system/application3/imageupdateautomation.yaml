@@ -5,22 +5,21 @@ metadata:
   namespace: flux-system
 spec:
   git:
+    checkout:
+      ref:
+        branch: main  # Specify the branch to track
     commit:
       author:
         email: m.naeem.uet.cs@gmail.com
         name: NaeemDosh
-      messageTemplate: "{{range .Updated.Images}}{{println .}}{{end}}"
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
-      branch: main  # Specify the branch for pushing updates to Git
-  interval: 1m0s  # Interval at which Flux will check for image updates
+      branch: main  # Specify the branch to push changes
+  interval: 1m0s  # Automation interval
   sourceRef:
     kind: GitRepository
-    name: flux-deployments  # Name of the Git repository
+    name: flux-deployments  # Ensure this GitRepository is correctly defined
     namespace: flux-system
   update:
-    path: ./flux/flux-system/application3   # Path where the Flux resources are stored (e.g., ImageUpdateAutomation)
-    strategy: Setters
-    imageRef:
-      name: docker.io/muhammadnaeem42/application3  # The image to monitor for updates
-      policy:
-        semver: ">=1.0.0"  # The version policy for Docker image tags
+    path: ./charts/application3  # Path to your Helm chart or Kubernetes manifests
+    strategy: Setters  # Strategy for updating image tags
