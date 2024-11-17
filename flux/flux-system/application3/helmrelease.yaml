@@ -2,16 +2,17 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: application3
-  namespace: default  # Change this to default namespace
+  namespace: flux-system
 spec:
-  interval: 1m
+  interval: 5m
   chart:
     spec:
-      chart: ./charts/application3  # Path to Helm chart in the repo
+      chart: application3  # Chart name in the application3 repository
       sourceRef:
         kind: GitRepository
-        name: flux-deployments  # Ensure this GitRepository exists in flux-system namespace
-        namespace: flux-system  # Keep this as flux-system for the GitRepository
+        name: application3-repo  # Correct GitRepository reference
+        namespace: flux-system
+      path: ./charts/application3  # Correct path to the chart in the repo
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
