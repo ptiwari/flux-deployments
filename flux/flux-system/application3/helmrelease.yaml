@@ -15,5 +15,4 @@ spec:
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3  # Docker image repository
-      tag: "latest"  # Image tag will be updated dynamically by Flux
-      pullPolicy: Always
+      tag: "latest"   # {"$imagepolicy": "docker.io/muhammadnaeem42/application3:tag"}
