@@ -18,8 +18,8 @@ spec:
   interval: 1m0s  # Automation interval
   sourceRef:
     kind: GitRepository
-    name: flux-deployments  # Ensure this GitRepository is correctly defined
+    name: flux-deployments  # Ensure this GitRepository exists in flux-system
     namespace: flux-system
   update:
-    path: ./charts/application3  # Path to your Helm chart or Kubernetes manifests
-    strategy: Setters  # Strategy for updating image tags
+    path: ./charts/application3  # Adjust path relative to the repository
+    strategy: Setters  # Use Setters to replace values in YAML files
