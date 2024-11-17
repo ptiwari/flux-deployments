@@ -21,9 +21,6 @@ spec:
     name: flux-deployments  # Git repository containing the HelmRelease or manifest files
     namespace: flux-system
   update:
-    path: ./flux  # Path to the Helm chart or Kubernetes manifests
+    path: ./charts/application3
     strategy: Setters  # Update strategy (can be "Patch" or "Setters")
-  image:
-    name: docker.io/muhammadnaeem42/application3  # The image to be updated
-    policy:
-      semver: ">=1.0.0"  # Version policy for the image
+    imagePolicy: application3-image-policy  # Reference to the ImagePolicy
