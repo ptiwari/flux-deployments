@@ -7,12 +7,12 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: application3  # This refers to the chart name within the repository
+      chart: application3  # Matches the chart directory name inside the repository
       sourceRef:
         kind: GitRepository
-        name: application3-repo  # Ensure this matches the GitRepository name
+        name: application3-repo
         namespace: default
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: "latest"
+      tag: latest
