@@ -15,4 +15,4 @@ spec:
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: "{{ .image.application3-policy.latest }}"
+      tag: "v1.3.1"
