@@ -8,4 +8,4 @@ spec:
     name: application3-repository
   policy:
     semver:
-      range: ">=1.0.0"
+      range: "latest"  # Accept any version >=1.0.0
