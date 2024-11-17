@@ -4,5 +4,5 @@ metadata:
   name: application3-image
   namespace: default
 spec:
-  image: docker.io/muhammadnaeem42/application3  # Docker image reference
-  interval: 1m  # Check every minute for new images
+  image: docker.io/muhammadnaeem42/application3
+  interval: 1m0s
