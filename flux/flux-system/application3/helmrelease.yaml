@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: application3
@@ -7,13 +7,12 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: application3  # Chart name in the application3 repository
+      chart: charts/application3  # Path to Helm chart in the repo
       sourceRef:
         kind: GitRepository
-        name: application3-repo  # Correct GitRepository reference
+        name: application3-repo
         namespace: flux-system
-      path: ./charts/application3  # Correct path to the chart in the repo
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      tag: # {"$imagepolicy": "default:application3-image-policy"}
+      tag: "{{ .image.application3-policy.latest }}"
