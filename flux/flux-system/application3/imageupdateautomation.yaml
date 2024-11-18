@@ -7,7 +7,7 @@ spec:
   git:
     checkout:
       ref:
-        branch: main  # The branch you want to track
+        branch: main
     commit:
       author:
         email: flux-bot@users.noreply.github.com
@@ -15,11 +15,11 @@ spec:
       messageTemplate: |
         Automated image update for {{ .Updated.ImageRef }}
     push:
-      branch: main  # Push updates to the same branch or different branch
-  interval: 1m  # Frequency to check for new images (every minute)
+      branch: main
+  interval: 1m
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # The name of your GitRepository resource
+    name: application3-repo
   update:
-    path: "charts/values.yaml"  # Path to the Helm chart values file to update
-    strategy: Setters  # Use Setters strategy to update the tag
+    path: "./application3/kustomization.yaml"  # Adjust based on repo structure
+    strategy: Setters
