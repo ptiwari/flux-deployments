@@ -17,9 +17,10 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:name"}
+      repository: docker.io/muhammadnaeem42/application3
       pullPolicy: Always
-      tag: latest # {"$imagepolicy": "default:application3-image-policy:tag"}
-
-     
-  
+      tag: 
+        # Use the ImagePolicy reference to dynamically set the tag
+        # This should be a reference to the ImagePolicy's tag value
+        # For example: {"$imagepolicy": "default:application3-image-policy:tag"}
+        {"$imagepolicy": "default:application3-image-policy:tag"}
