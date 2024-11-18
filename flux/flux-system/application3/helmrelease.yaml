@@ -7,6 +7,7 @@ metadata:
     image.toolkit.fluxcd.io/update: "default:application3-image-policy"  # Match ImagePolicy
 spec:
   interval: 1m
+  timeout: 5m 
   chart:
     spec:
       chart: charts
