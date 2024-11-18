@@ -16,6 +16,9 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3
+      repository: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:name"}
       pullPolicy: Always
-      tag: latest
+      tag: latest # {"$imagepolicy": "default:application3-image-policy:tag"}
+
+     
+  
