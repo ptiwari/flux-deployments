@@ -7,19 +7,19 @@ spec:
   interval: 1m
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # Name of the GitRepository resource
+    name: application3-repo  # Matches the GitRepository resource
   update:
-    path: charts  # Ensure this path points to the directory containing the HelmRelease file
+    path: charts  # Ensure the path points to the directory with HelmRelease
     strategy: Setters
   git:
     checkout:
       ref:
-        branch: main  # Replace with the branch you're using
+        branch: main
     push:
-      branch: main  # Replace with the branch you're using
+      branch: main
     commit:
       author:
-        email: flux-bot@users.noreply.github.com
         name: Flux Bot
+        email: flux-bot@users.noreply.github.com
       messageTemplate: |
         Automated image update for {{ .Updated.ImageRef }}
