@@ -7,7 +7,7 @@ metadata:
     image.toolkit.fluxcd.io/update: "default:application3-image-policy"  # Match ImagePolicy
 spec:
   interval: 1m
-  timeout: 5m 
+  timeout: 5m
   chart:
     spec:
       chart: charts
@@ -19,4 +19,4 @@ spec:
     image:
       repository: docker.io/muhammadnaeem42/application3
       pullPolicy: Always
-      tag: 
+      tag: "{{ .Values.image.tag }}"  # Reference the tag set by Flux automatically from the ImagePolicy
