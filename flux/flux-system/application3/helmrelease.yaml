@@ -3,20 +3,18 @@ kind: HelmRelease
 metadata:
   name: application3
   namespace: default
-  annotations:
-    image.toolkit.fluxcd.io/update: "default:application3-image-policy"
 spec:
   interval: 1m
   timeout: 5m
   chart:
     spec:
-      chart: charts
+      chart: charts  # Path to the Helm chart
       sourceRef:
         kind: GitRepository
-        name: application3-repo
+        name: application3-repo  # Matches GitRepository
         namespace: flux-system
   values:
     image:
       repository: docker.io/muhammadnaeem42/application3
-      pullPolicy: Always
-      # Omit the `tag` here, it will be updated dynamically by the image policy.
+      pullPolicy: Always  # Always pull the latest image
+      tag: latest  # Set to 'latest' tag so Flux picks up any update
