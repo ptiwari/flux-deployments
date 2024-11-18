@@ -9,7 +9,3 @@ resources:
   - ./application3/helmrelease.yaml
   - ./application3/helmchart.yaml
   - ./application3/imageupdateautomation.yaml
-images:
-  - name: docker.io/muhammadnaeem42/application3
-    newName: docker.io/muhammadnaeem42/application3
-    newTag: "*"
