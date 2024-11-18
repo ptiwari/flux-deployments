@@ -1,25 +1,24 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: application3
   namespace: default
-  annotations:
-    image.toolkit.fluxcd.io/update: "default:application3-image-policy"  # Match ImagePolicy
 spec:
-  interval: 1m
-  timeout: 5m 
   chart:
     spec:
-      chart: charts
+      chart: ./charts  # This should point to the location of your chart
       sourceRef:
         kind: GitRepository
         name: application3-repo
-        namespace: flux-system
+      version: "0.1.0"  # You can specify the version of the chart, or use a latest tag.
+  valuesFrom:
+    - configMapKeyRef:
+        name: application3-values
+        key: values.yaml
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:name"}
-      pullPolicy: Always
-      tag: latest # {"$imagepolicy": "default:application3-image-policy:tag"}
-
-     
-  
+      tag: "{{ .Values.image.tag }}"
+  interval: 5m
+  releaseName: application3
+  install:
+    createNamespace: true
