@@ -13,7 +13,7 @@ spec:
         email: flux-bot@users.noreply.github.com
         name: Flux Bot
       messageTemplate: |
-        Automated update for image {{ .Updated.ImageRef }}
+        Automated image update for {{ .Updated.ImageRef }}
     push:
       branch: main
   interval: 1m
@@ -21,5 +21,5 @@ spec:
     kind: GitRepository
     name: application3-repo
   update:
-    path: "./application3/helmrelease.yaml"  # Point to your HelmRelease
+    path: "./helmrelse.yaml"  # Ensure this points to your HelmRelease file
     strategy: Setters
