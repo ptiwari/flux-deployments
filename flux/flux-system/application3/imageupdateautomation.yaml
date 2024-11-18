@@ -9,7 +9,7 @@ spec:
     kind: GitRepository
     name: application3-repo  # Matches the GitRepository resource
   update:
-    path: charts  # Ensure the path points to the directory with HelmRelease
+    path: ./charts  # Ensure the path points to the directory with HelmRelease
     strategy: Setters
   git:
     checkout:
