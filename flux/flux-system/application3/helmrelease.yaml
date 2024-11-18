@@ -15,6 +15,6 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3
+      repository: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:image"}
       pullPolicy: Always  # Always pull the latest image
-      tag: v1.8.1  # Set to 'latest' tag so Flux picks up any update
+      tag: v1.8.1  # {"$imagepolicy": "default:application3-image-policy:tag"}
