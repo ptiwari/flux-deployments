@@ -7,19 +7,19 @@ spec:
   git:
     checkout:
       ref:
-        branch: main  # Adjust if using a different branch
+        branch: main  # The branch you want to track
     commit:
       author:
         email: flux-bot@users.noreply.github.com
         name: Flux Bot
       messageTemplate: |
-        Automated image update for {{ .Updated.ImageRef }}  # Custom commit message template
+        Automated image update for {{ .Updated.ImageRef }}
     push:
-      branch: main  # Adjust if pushing to a different branch
-  interval: 1m  # Check for updates every minute
+      branch: main  # Push updates to the same branch or different branch
+  interval: 1m  # Frequency to check for new images (every minute)
   sourceRef:
     kind: GitRepository
-    name: application3-repo  # Name of the GitRepository resource
+    name: application3-repo  # The name of your GitRepository resource
   update:
-    path: "charts/values.yaml"  # Path to values.yaml, adjust as needed
-    strategy: Setters
+    path: "charts/values.yaml"  # Path to the Helm chart values file to update
+    strategy: Setters  # Use Setters strategy to update the tag
