@@ -4,7 +4,7 @@ metadata:
   name: application3
   namespace: default
   annotations:
-    image.toolkit.fluxcd.io/update: "default:application3-image-policy"  # Match ImagePolicy
+    image.toolkit.fluxcd.io/update: "default:application3-image-policy"
 spec:
   interval: 1m
   timeout: 5m
@@ -17,6 +17,6 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:name"}
+      repository: docker.io/muhammadnaeem42/application3
       pullPolicy: Always
-      tag: v1.1.1 # {"$imagepolicy": "default:application3-image-policy:tag"}
+      # Omit the `tag` here, it will be updated dynamically by the image policy.
