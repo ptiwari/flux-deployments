@@ -17,6 +17,6 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: docker.io/muhammadnaeem42/application3
+      repository: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:name"}
       pullPolicy: Always
-      tag: "{{ .Values.image.tag }}"  # Reference the tag set by Flux automatically from the ImagePolicy
+      tag: v1.1.1 # {"$imagepolicy": "default:application3-image-policy:tag"}
