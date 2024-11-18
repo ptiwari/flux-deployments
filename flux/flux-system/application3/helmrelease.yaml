@@ -19,8 +19,4 @@ spec:
     image:
       repository: docker.io/muhammadnaeem42/application3
       pullPolicy: Always
-      tag: 
-        # Use the ImagePolicy reference to dynamically set the tag
-        # This should be a reference to the ImagePolicy's tag value
-        # For example: {"$imagepolicy": "default:application3-image-policy:tag"}
-        {"$imagepolicy": "default:application3-image-policy:tag"}
+      tag: "{{ .Values.image.tag }}"
