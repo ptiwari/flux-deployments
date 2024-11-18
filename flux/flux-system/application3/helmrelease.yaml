@@ -17,4 +17,4 @@ spec:
     image:
       repository: docker.io/muhammadnaeem42/application3
       pullPolicy: Always  # Always pull the latest image
-      tag: latest  # Set to 'latest' tag so Flux picks up any update
+      tag: v1.8.1  # Set to 'latest' tag so Flux picks up any update
