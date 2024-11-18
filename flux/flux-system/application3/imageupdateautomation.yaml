@@ -2,7 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
   name: application3-image-update
-  namespace: flux-system
+  namespace: default
 spec:
   git:
     checkout:
@@ -10,16 +10,16 @@ spec:
         branch: main
     commit:
       author:
-        email: flux-bot@users.noreply.github.com
-        name: Flux Bot
-      messageTemplate: |
-        Automated image update for {{ .Updated.ImageRef }}
+        email: m.naeem.uet.cs@gmail.com
+        name: NaeemDosh
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
       branch: main
-  interval: 1m
+  interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: application3-repo
+    name: flux-deployments
+    namespace: flux-system
   update:
-    path: "./helmrelse.yaml"  # Ensure this points to your HelmRelease file
+    path: ./helmrelease.yaml
     strategy: Setters
