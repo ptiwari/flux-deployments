@@ -10,3 +10,7 @@ resources:
   - ./application3/helmrelease.yaml
   - ./application3/helmchart.yaml
   - ./application3/imageupdateautomation.yaml
+images:
+- name: docker.io/muhammadnaeem42/application3
+  newName: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:name"}
+  newTag: v1.1.1  # {"$imagepolicy": "default:application3-image-policy:tag"}
