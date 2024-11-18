@@ -21,5 +21,7 @@ spec:
     kind: GitRepository
     name: application3-repo
   update:
-    path: ./charts
+    path: "charts/values.yaml" 
     strategy: Setters
+  sourceRef:
+    name: application3-image-policy
