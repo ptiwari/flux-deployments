@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   imageRepositoryRef:
-    name: application3-repository  # Refers to the ImageRepository
+    name: application3-repository  # Matches your ImageRepository
   policy:
-    semver:
-      range: "0.0.0-latest"  # This matches all versions, including 'latest'
+    alphabetical:
+      order: asc  # Picks the lexicographically last tag (e.g., latest)
