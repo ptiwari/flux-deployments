@@ -23,5 +23,5 @@ spec:
   update:
     path: "charts/values.yaml" 
     strategy: Setters
-  policy:
+  imagePolicyRef:
     name: application3-image-policy
