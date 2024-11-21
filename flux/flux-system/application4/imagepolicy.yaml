@@ -1,0 +1,11 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: application4-image-policy
+  namespace: default
+spec:
+  imageRepositoryRef:
+    name: application4-repository  # Matches your ImageRepository
+  policy:
+    alphabetical:
+      order: asc  # Picks the lexicographically last tag (e.g., latest)

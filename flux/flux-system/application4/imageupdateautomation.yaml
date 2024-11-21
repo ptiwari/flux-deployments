@@ -1,0 +1,25 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: application4-image-update
+  namespace: flux-system  # Updated to match the namespace of GitRepository
+spec:
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: m.naeem.uet.cs@gmail.com
+        name: NaeemDosh
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-deployments
+    namespace: flux-system  # Namespace matches GitRepository
+  update:
+    path: ./helmrelease.yaml  # Replace with the correct relative path to your HelmRelease file
+    strategy: Setters
