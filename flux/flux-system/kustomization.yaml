@@ -9,7 +9,7 @@ resources:
   - ./application3/helmrelease.yaml
   - ./application3/helmchart.yaml
   - ./application3/imageupdateautomation.yaml
-   - ./application4/gitrepository.yaml
+  - ./application4/gitrepository.yaml
   - ./application4/imagerepository.yaml
   - ./application4/imagepolicy.yaml
   - ./application4/helmrelease.yaml
