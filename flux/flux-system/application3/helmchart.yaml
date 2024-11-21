@@ -3,7 +3,7 @@ kind: HelmChart
 metadata:
   name: application3-chart
   namespace: flux-system
-spec:
+spec: 
   chart: charts
   sourceRef:
     kind: GitRepository
