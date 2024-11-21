@@ -4,7 +4,7 @@ metadata:
   name: application4-image-policy
   namespace: default
 spec:
-  imageRepositoryRef:
+  imageRepositoryRef: 
     name: application4-repository  # Matches your ImageRepository
   policy:
     alphabetical:
