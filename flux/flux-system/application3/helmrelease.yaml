@@ -17,4 +17,4 @@ spec:
     image:
       repository: docker.io/muhammadnaeem42/application3 # {"$imagepolicy": "default:application3-image-policy:image"}
       pullPolicy: Always  # Always pull the latest image
-      tag: v2.1.2  # {"$imagepolicy": "default:application3-image-policy:tag"}
+      tag: v2.1.1  # {"$imagepolicy": "default:application3-image-policy:tag"}
